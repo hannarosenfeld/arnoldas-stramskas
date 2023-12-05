@@ -22,11 +22,11 @@ function App() {
   useEffect(() => {
     console.log("💅🏻 in useEffect");
     window
-      .fetch(`https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}/?access_token=${ACCESS_TOKEN}`, {
+      .fetch(`https://graphql.contentful.com/content/v1/spaces/${SPACE_ID}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: "Bearer JjxBmPXFxdVMU45d0BQ0OVO3KB3zATWxERqcmUxgGEo",
+          Authorization: "Bearer {ACCESS_TOKEN}",
         },
         body: JSON.stringify({ query }),
       })
