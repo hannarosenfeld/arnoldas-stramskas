@@ -25,12 +25,23 @@ function App() {
     )
     
   if (!data) return <span>Loading...</span>;
+  else console.log("🌸", data.itemCollection.items)
 
   return (
     <div className="App">
       <header className="App-header">
-        <Header/>      
+        <Header/>
       </header>
+      <div className="container">
+        {data.itemCollection.items.map(item => (
+        <div className="card">
+          <div className="card-body">
+            <h3>{item.name}</h3>
+
+          </div>
+        </div>
+        ))}
+      </div>
     </div>
   );
 }
