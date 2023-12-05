@@ -5,6 +5,7 @@ const { ACCESS_TOKEN, SPACE_ID } = process.env;
 
 function useContentful(query) {
     const [data, setData] = useState(null);
+    let [errors, setErrors] = useState(null);
 
     useEffect(() => {
       console.log("💅🏻 in useEffect");
@@ -18,15 +19,15 @@ function useContentful(query) {
           body: JSON.stringify({ query }),
         })
         .then((response) => response.json())
-        .then((json) => setData(json.data));
+        .then(({data, errors}) => {
+          if (errors) setErrors(errors)
+          if (data) setData(json.data)
+        })
+      .catch(error => setErrors([error]))
     }, [query]);
 
-    if (!data) {
-      return "Loading...";
-    } else {
-      console.log("🌸 content: ", data);
-      return { data }
-    }
+      return { data, errors}
+ 
 }
 
 export default useContentful

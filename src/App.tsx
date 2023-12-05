@@ -14,8 +14,16 @@ const query = `
 `;
 
 function App() {
-  let { data } = useContentful(query)
-  // render the fetched Contentful data
+  let { data, errors } = useContentful(query);
+
+  if (errors) return (
+    <span style={{color: "red"}}>
+      {errors?.map((error) => error.message).join(",")}
+      </span>
+    )
+    
+  if (!data) return <span>Loading...</span>;
+
   return (
     <div className="App">
       <header className="App-header">
