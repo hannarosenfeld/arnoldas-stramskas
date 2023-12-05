@@ -19,7 +19,7 @@ function useContentful(query) {
         })
         .then((response) => response.json())
         .then((json) => setData(json.data));
-    }, []);
+    }, [query]);
 
     if (!data) {
       return "Loading...";
