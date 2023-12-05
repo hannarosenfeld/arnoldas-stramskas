@@ -1,7 +1,6 @@
 import useContentful from "./utils/useContentful"
 import Header from "./components/Header"
-
-// import "./App.css";
+import "./App.css";
 
 const query = `
   query {
@@ -10,6 +9,10 @@ const query = `
         name
         description
         available
+        dimensions
+        image {
+          url
+        }
       }
     }
   }
@@ -35,9 +38,14 @@ function App() {
       <div className="container">
         {data.itemCollection.items.map(item => (
         <div className="card">
+          <div className="image-container">
+            <img className="card-img-top" alt={item.name} src={item.image.url} />
+            <span className="material-symbols-outlined">add_shopping_cart</span>
+          </div>
           <div className="card-body">
-            <h3>{item.name}</h3>
-
+            <h5 className="card-title">{item.name}</h5>
+            <p className="card-text">{item.description}</p>
+            <p className="card-text">{item.dimensions}</p>
           </div>
         </div>
         ))}

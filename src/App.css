@@ -1,0 +1,25 @@
+.card {
+  max-width: 20em;
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+}
+
+.material-symbols-outlined {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #fff; /* Add a background color for the circular appearance */
+  border-radius: 50%; /* Make it circular */
+  padding: 5px; /* Adjust padding as needed */
+  cursor: pointer;
+  opacity: 0; /* Initially hide the icon */
+  transition: opacity 0.3s ease; /* Add a smooth transition effect */
+}
+
+.card:hover .material-symbols-outlined {
+  opacity: 1; /* Show the icon on hover */
+}
+
