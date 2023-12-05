@@ -21,7 +21,7 @@ function useContentful(query) {
         .then((response) => response.json())
         .then(({data, errors}) => {
           if (errors) setErrors(errors)
-          if (data) setData(json.data)
+          if (data) setData(data)
         })
       .catch(error => setErrors([error]))
     }, [query]);
