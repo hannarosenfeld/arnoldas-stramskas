@@ -1,5 +1,7 @@
-import useContentful from "./utils/useContentful.jsx"
-import "./App.css";
+import useContentful from "./utils/useContentful"
+import Header from "./components/Header"
+
+// import "./App.css";
 
 const query = `
   query {
@@ -27,7 +29,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* Render your content here */}
+        <Header/>      
       </header>
     </div>
   );
