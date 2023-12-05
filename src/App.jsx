@@ -1,5 +1,6 @@
-const useContentful = require('./utils/useContentful.jsx');
-const Header = require("./components/Header");
+import useContentful from './utils/useContentful.jsx';
+import Header from "./components/Header.jsx"
+
 import "./App.css";
 
 const query = `
@@ -23,7 +24,7 @@ function App() {
 
   if (errors) return (
     <span style={{color: "red"}}>
-      {errors?.map((error: any) => error.message).join(",")}
+      {errors?.map((error) => error.message).join(",")}
       </span>
     )
     
@@ -36,7 +37,7 @@ function App() {
         <Header/>
       </header>
       <div className="container">
-        {data.itemCollection.items.map((item : any) => (
+        {data.itemCollection.items.map((item) => (
         <div className="card">
           <div className="image-container">
             <img className="card-img-top" alt={item.name} src={item.image.url} />
